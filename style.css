@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #ffff;
+}
+.box {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  background: grey;
+  border-radius: 50px;
+}
+.box:before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #000;
+  border-radius: 50px;
+}
+.inner {
+  position: absolute;
+  inset: 4px;
+  background: url(iphone14_pic.png);
+  inset: 3px;
+  border-radius: 50px;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 5px solid black;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.box:hover .inner {
+  opacity: 1;
+}
+.btn {
+  position: absolute;
+  width: 3px;
+  height: 26px;
+  background: linear-gradient(grey, white, grey);
+  top: 110px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  left: -2px;
+  z-index: 1;
+}
+
+.btn.btn1 {
+  top: 160px;
+  height: 40px;
+}
+.btn.btn2 {
+  top: 220px;
+  height: 40px;
+}
+
+.rightSideBtn {
+  position: absolute;
+  width: 3px;
+  height: 70px;
+  background: linear-gradient(grey, white, grey);
+  top: 160px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  right: -2px;
+  z-index: 1;
+}
+.island-popup {
+  position: absolute;
+  background: #000;
+  width: 90px;
+  height: 25px;
+  top: 8px;
+  border-radius: 30px;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.island-popup:hover {
+  width: 200px;
+  height: 30px;
+}
+.island-popup.active {
+  width: 240px;
+  height: 50px;
+}
+
+.green {
+  color: green;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+  line-height: 25px;
+  opacity: 1;
+}
+.content p {
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0.8em;
+  cursor: default;
+  transition: 0.5s;
+}
+.action {
+  color: white;
+  position: relative;
+  top: 5px;
+  display: flex;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.island-popup.active .action {
+  top: 12px;
+}
+ion-icon.red {
+  cursor: pointer;
+  color: #fd443b;
+  transform: rotate(135deg);
+  margin-right: 10px;
+}
+ion-icon.green {
+  cursor: pointer;
+  color: #31d059;
+  margin-right: 8px;
+}
+.island-popup:hover p,
+.island-popup:hover .action,
+.island-popup.active .action,
+.island-popup.active p {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.island-popup.active .red {
+  color: #eeee;
+  background: #fd443b;
+  box-shadow: 0 0 0 8px #fd443b;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+.island-popup.active .green {
+  color: #eeee;
+  background: #31d059;
+  box-shadow: 0 0 0 8px #31d059;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.details {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.details .imgbox {
+  position: relative;
+  width: 0;
+  height: 0;
+  background: white;
+  border-radius: 50%;
+  transition: 0.5s;
+  margin-right: 7px;
+  overflow: hidden;
+}
+
+.island-popup.active .details .imgbox {
+  width: 40px;
+  height: 40px;
+}
+
+.details .imgbox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
